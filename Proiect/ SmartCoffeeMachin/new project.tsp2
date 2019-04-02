@@ -1,0 +1,144 @@
+<project projectname="NewProject" projectauthor="Administrator" screenwidth="800" screenheight="600" screendiffers="false" runscreenwidth="800" runscreenheight="600" updateperiod="1000" eventsdbname="events" historydbname="history" storagedbperiod="2" notpriority="100" defaultfont="0" certificatename="TeslaSCADA2" certperiod="3650" showserverevents="true" usetelegrambot="false" bottokenuse="false" bottokenname="">
+   <windows>
+      <window name="Screen0" color="0xd3d3d3ff" type="0" windowheight="600" windowwidth="800" usepassword="false" password="" groupname="" subgroupname="" posx="-1000" posy="-1000">
+         <objects>
+            <objectView class="tesla.scada2.model.objects.OvalLightButtonView" name="Oval light button" posx="138.0" posy="403.0" width="50.0" height="40.0" angle="0" lock="false" text="ON" textcolor="0xffffffff" fillcolor="0x0000ffff" type3d="0" fonttype="0" fontsize="0" textplacement="1" animation="true">
+               <property key="buttoncontrol">
+                  <property class="tesla.scada2.model.properties.ButtonControlProperty" tagname="resultButton" functiontype="2" value="0" title="Enter value" command=""/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="121.0" posy="63.0" width="150.0" height="160.0" angle="0" lock="false" text="Water" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
+               <property key="filling">
+                  <property class="tesla.scada2.model.properties.FillingProperty" tagname="totalWaterCount" minimumvalue="0.0" maximumvalue="2000.0"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="373.0" posy="66.0" width="150.0" height="160.0" angle="0" lock="false" text="Garbage" color="0x808080ff" fillcolor="0x0000ffff" type3d="0"/>
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="595.0" posy="63.0" width="150.0" height="160.0" angle="0" lock="false" text="Coffee" color="0x808080ff" fillcolor="0x0000ffff" type3d="0"/>
+         </objects>
+         <scriptnames/>
+      </window>
+   </windows>
+   <scripts>
+      <script name="MegaScript" color="0xd3d3d3ff" type="0" windowheight="600" windowwidth="800" groupname="" subgroupname="" language="1">
+         <objects/>
+         <links/>
+         <sttext>int count = Tags.waterCount;
+int totallCoffee = Tags.cofeeBag;
+int coffeeCount = Tags.coffeeCount;
+
+if(Tags.resultButton)
+{
+	if( Tags.ifFirstAttempt ){
+	
+		Tags.tempTag = Tags.totalWaterCount - Tags.waterCount;
+		coff = 
+		Tags.ifFirstAttempt = false;
+	}			
+	Tags.totalWaterCount = Tags.totalWaterCount - 10 ;
+	Tags.Garbage  = Tags.Garbage + 10;
+	if(Tags.totalWaterCount &lt;= Tags.tempTag  ){
+		Tags.resultButton = false;
+		Tags.ifFirstAttempt = true;
+	}
+	
+}
+switch 
+
+</sttext>
+         <opcodes>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>waterCount</value>
+            </opcode>
+            <opcode type="STORE" datatype="3">
+               <value>count</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>resultButton</value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>21</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>ifFirstAttempt</value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>7</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>waterCount</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>totalWaterCount</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1"/>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>tempTag</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="0">
+               <value>false</value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>ifFirstAttempt</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>10</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>totalWaterCount</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1"/>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>totalWaterCount</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>tempTag</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>totalWaterCount</value>
+            </opcode>
+            <opcode type="BINARY_LTE" datatype="-1"/>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>5</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="0">
+               <value>false</value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>resultButton</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="0">
+               <value>true</value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>ifFirstAttempt</value>
+            </opcode>
+         </opcodes>
+      </script>
+   </scripts>
+   <servers/>
+   <tags>
+      <tag name="Garbage" datatype="3" accessmode="1" initialpv="0" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="cofeeBag" datatype="3" accessmode="1" initialpv="500" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="coffeeCount" datatype="3" accessmode="1" initialpv="20" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="ifFirstAttempt" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="resultButton" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="tempTag" datatype="3" accessmode="1" initialpv="0" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="totalWaterCount" datatype="3" accessmode="1" initialpv="500" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="waterCount" datatype="3" accessmode="1" initialpv="150" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+   </tags>
+   <users/>
+   <libraries/>
+   <recipes/>
+   <sounds/>
+   <mqttpublisher enabled="false" broker="tcp://m11.cloudmqtt.com:16160" Qos="0" enablessl="false" enableclientcert="false" pem="false" protocol="TLSv1.2"/>
+   <emailclient enableclient="false" host="smtp.gmail.com" port="587" tlsssl="0" auth="true"/>
+   <groups/>
+   <subgroups/>
+   <subscreengroups/>
+   <subscriptgroups>
+      <subGroup group="New group">
+         <subgroups/>
+      </subGroup>
+   </subscriptgroups>
+   <opcuaserver enabled="false" tcpport="8666" useanonymouspolicy="true" useusernamepasswordpolicy="true" servercertificatename="opcuacertificate" servercertdays="3650"/>
+</project>
