@@ -12,7 +12,11 @@
                   <property class="tesla.scada2.model.properties.FillingProperty" tagname="totalWaterCount" minimumvalue="0.0" maximumvalue="2000.0"/>
                </property>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="373.0" posy="66.0" width="150.0" height="160.0" angle="0" lock="false" text="Garbage" color="0x808080ff" fillcolor="0x0000ffff" type3d="0"/>
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="373.0" posy="66.0" width="150.0" height="160.0" angle="0" lock="false" text="Garbage" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
+               <property key="filling">
+                  <property class="tesla.scada2.model.properties.FillingProperty" tagname="Garbage" minimumvalue="0.0" maximumvalue="200.0"/>
+               </property>
+            </objectView>
             <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="595.0" posy="63.0" width="150.0" height="160.0" angle="0" lock="false" text="Coffee" color="0x808080ff" fillcolor="0x0000ffff" type3d="0"/>
          </objects>
          <scriptnames/>
@@ -23,7 +27,7 @@
          <objects/>
          <links/>
          <sttext>int count = Tags.waterCount;
-int totallCoffee = Tags.cofeeBag;
+int totalCoffee = Tags.cofeeBag;
 int coffeeCount = Tags.coffeeCount;
 
 if(Tags.resultButton)
@@ -31,7 +35,7 @@ if(Tags.resultButton)
 	if( Tags.ifFirstAttempt ){
 	
 		Tags.tempTag = Tags.totalWaterCount - Tags.waterCount;
-		coff = 
+		totalCoffee = totalCoffee - coffeeCount; 
 		Tags.ifFirstAttempt = false;
 	}			
 	Tags.totalWaterCount = Tags.totalWaterCount - 10 ;
@@ -41,8 +45,7 @@ if(Tags.resultButton)
 		Tags.ifFirstAttempt = true;
 	}
 	
-}
-switch 
+} 
 
 </sttext>
          <opcodes>
@@ -53,16 +56,28 @@ switch
                <value>count</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
+               <value>cofeeBag</value>
+            </opcode>
+            <opcode type="STORE" datatype="3">
+               <value>totalCoffee</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>coffeeCount</value>
+            </opcode>
+            <opcode type="STORE" datatype="3">
+               <value>coffeeCount</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
                <value>resultButton</value>
             </opcode>
             <opcode type="JUMP_IF_FALSE" datatype="-1">
-               <value>21</value>
+               <value>29</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
                <value>ifFirstAttempt</value>
             </opcode>
             <opcode type="JUMP_IF_FALSE" datatype="-1">
-               <value>7</value>
+               <value>11</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
                <value>waterCount</value>
@@ -70,9 +85,23 @@ switch
             <opcode type="LOAD_TAG" datatype="-1">
                <value>totalWaterCount</value>
             </opcode>
-            <opcode type="BINARY_REM" datatype="-1"/>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
             <opcode type="STORE_TAG" datatype="-1">
                <value>tempTag</value>
+            </opcode>
+            <opcode type="LOAD_FAST" datatype="-1">
+               <value>coffeeCount</value>
+            </opcode>
+            <opcode type="LOAD_FAST" datatype="-1">
+               <value>totalCoffee</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE" datatype="3">
+               <value>totalCoffee</value>
             </opcode>
             <opcode type="LOAD_CONST" datatype="0">
                <value>false</value>
@@ -86,9 +115,23 @@ switch
             <opcode type="LOAD_TAG" datatype="-1">
                <value>totalWaterCount</value>
             </opcode>
-            <opcode type="BINARY_REM" datatype="-1"/>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
             <opcode type="STORE_TAG" datatype="-1">
                <value>totalWaterCount</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>10</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>Garbage</value>
+            </opcode>
+            <opcode type="BINARY_ADD" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>Garbage</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
                <value>tempTag</value>
@@ -96,7 +139,9 @@ switch
             <opcode type="LOAD_TAG" datatype="-1">
                <value>totalWaterCount</value>
             </opcode>
-            <opcode type="BINARY_LTE" datatype="-1"/>
+            <opcode type="BINARY_LTE" datatype="-1">
+               <value></value>
+            </opcode>
             <opcode type="JUMP_IF_FALSE" datatype="-1">
                <value>5</value>
             </opcode>
@@ -135,10 +180,6 @@ switch
    <groups/>
    <subgroups/>
    <subscreengroups/>
-   <subscriptgroups>
-      <subGroup group="New group">
-         <subgroups/>
-      </subGroup>
-   </subscriptgroups>
+   <subscriptgroups/>
    <opcuaserver enabled="false" tcpport="8666" useanonymouspolicy="true" useusernamepasswordpolicy="true" servercertificatename="opcuacertificate" servercertdays="3650"/>
 </project>
