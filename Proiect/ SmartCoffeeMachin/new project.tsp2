@@ -1,23 +1,43 @@
-<project projectname="NewProject" projectauthor="Administrator" screenwidth="800" screenheight="600" screendiffers="false" runscreenwidth="800" runscreenheight="600" updateperiod="1000" eventsdbname="events" historydbname="history" storagedbperiod="2" notpriority="100" defaultfont="0" certificatename="TeslaSCADA2" certperiod="3650" showserverevents="true" usetelegrambot="false" bottokenuse="false" bottokenname="">
+<project projectname="NewProject" projectauthor="Administrator" screenwidth="1920" screenheight="1080" screendiffers="false" runscreenwidth="800" runscreenheight="600" updateperiod="100" eventsdbname="events" historydbname="history" storagedbperiod="2" notpriority="100" defaultfont="0" certificatename="TeslaSCADA2" certperiod="3650" showserverevents="true" usetelegrambot="false" bottokenuse="false" bottokenname="">
    <windows>
       <window name="Screen0" color="0xd3d3d3ff" type="0" windowheight="600" windowwidth="800" usepassword="false" password="" groupname="" subgroupname="" posx="-1000" posy="-1000">
          <objects>
-            <objectView class="tesla.scada2.model.objects.OvalLightButtonView" name="Oval light button" posx="138.0" posy="403.0" width="50.0" height="40.0" angle="0" lock="false" text="ON" textcolor="0xffffffff" fillcolor="0x0000ffff" type3d="0" fonttype="0" fontsize="0" textplacement="1" animation="true">
+            <objectView class="tesla.scada2.model.objects.OvalLightButtonView" name="Oval light button" posx="150.0" posy="310.0" width="50.0" height="40.0" angle="0" lock="false" text="ON" textcolor="0xffffffff" fillcolor="0x0000ffff" type3d="0" fonttype="0" fontsize="0" textplacement="1" animation="true">
                <property key="buttoncontrol">
                   <property class="tesla.scada2.model.properties.ButtonControlProperty" tagname="resultButton" functiontype="2" value="0" title="Enter value" command=""/>
                </property>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="121.0" posy="63.0" width="150.0" height="160.0" angle="0" lock="false" text="Water" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="40.0" posy="20.0" width="150.0" height="160.0" angle="0" lock="false" text="Water" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
                <property key="filling">
                   <property class="tesla.scada2.model.properties.FillingProperty" tagname="totalWaterCount" minimumvalue="0.0" maximumvalue="2000.0"/>
                </property>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="373.0" posy="66.0" width="150.0" height="160.0" angle="0" lock="false" text="Garbage" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="390.0" posy="20.0" width="150.0" height="160.0" angle="0" lock="false" text="Garbage" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
                <property key="filling">
                   <property class="tesla.scada2.model.properties.FillingProperty" tagname="Garbage" minimumvalue="0.0" maximumvalue="200.0"/>
                </property>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="595.0" posy="63.0" width="150.0" height="160.0" angle="0" lock="false" text="Coffee" color="0x808080ff" fillcolor="0x0000ffff" type3d="0"/>
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="220.0" posy="20.0" width="150.0" height="160.0" angle="0" lock="false" text="Coffee" color="0x808080ff" fillcolor="0x0000ffff" type3d="0"/>
+            <objectView class="tesla.scada2.model.objects.SliderView" name="Slider" posx="560.0" posy="240.0" width="50.0" height="120.0" angle="90" lock="false" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
+               <property key="slidercontrol">
+                  <property class="tesla.scada2.model.properties.SliderControlProperty" tagname="sugar" minimumvalue="0.0" maximumvalue="5.0" snaptotick="false" decimalpos="0"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.OvalLightButtonView" name="Oval light button" posx="490.0" posy="250.0" width="50.0" height="40.0" angle="0" lock="false" text="-" textcolor="0xffffffff" fillcolor="0x4d804dff" type3d="0" fonttype="0" fontsize="0" textplacement="1" animation="true">
+               <property key="buttoncontrol">
+                  <property class="tesla.scada2.model.properties.ButtonControlProperty" tagname="minusSugarBtn" functiontype="2" value="0" title="Enter value" command=""/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.OvalLightButtonView" name="Oval light button" posx="690.0" posy="250.0" width="50.0" height="40.0" angle="0" lock="false" text="+" textcolor="0xffffffff" fillcolor="0x669966ff" type3d="0" fonttype="0" fontsize="0" textplacement="1" animation="true">
+               <property key="buttoncontrol">
+                  <property class="tesla.scada2.model.properties.ButtonControlProperty" tagname="plusSugarBtn" functiontype="2" value="0" title="Enter value" command=""/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.VerticalTankView" name="Vertical tank" posx="550.0" posy="20.0" width="150.0" height="160.0" angle="0" lock="false" text="Sugar" color="0x808080ff" fillcolor="0x0000ffff" type3d="0">
+               <property key="filling">
+                  <property class="tesla.scada2.model.properties.FillingProperty" tagname="SugarTank" minimumvalue="0.0" maximumvalue="1000.0"/>
+               </property>
+            </objectView>
          </objects>
          <scriptnames/>
       </window>
@@ -32,19 +52,46 @@ int coffeeCount = Tags.coffeeCount;
 
 if(Tags.resultButton)
 {
+	
 	if( Tags.ifFirstAttempt ){
+		
+	if(Tags.sugar == 1){
+		Tags.TempSugarTag = Tags.SugarTank - 15; 
+	}
+
+	if(Tags.sugar == 2){
+		Tags.TempSugarTag = Tags.SugarTank - 15*2; 
+		
+	}
+
+	if(Tags.sugar == 3){
+		Tags.TempSugarTag = Tags.SugarTank - 15*3;
+	}
+
+	if(Tags.sugar == 4){
+		Tags.TempSugarTag = Tags.SugarTank - 15*4;
+		
+	}
+
+	if(Tags.sugar == 5){
+		Tags.TempSugarTag = Tags.SugarTank - 15*5;
+	}
 	
 		Tags.tempTag = Tags.totalWaterCount - Tags.waterCount;
 		totalCoffee = totalCoffee - coffeeCount; 
 		Tags.ifFirstAttempt = false;
 	}			
-	Tags.totalWaterCount = Tags.totalWaterCount - 10 ;
-	Tags.Garbage  = Tags.Garbage + 10;
+	Tags.totalWaterCount = Tags.totalWaterCount - 1 ;
+	Tags.Garbage  = Tags.Garbage + 1;
+	
 	if(Tags.totalWaterCount &lt;= Tags.tempTag  ){
 		Tags.resultButton = false;
 		Tags.ifFirstAttempt = true;
 	}
 	
+	if(Tags.SugarTank &gt; Tags.TempSugarTag  ){
+		Tags.SugarTank--;
+	}
 } 
 
 </sttext>
@@ -71,13 +118,157 @@ if(Tags.resultButton)
                <value>resultButton</value>
             </opcode>
             <opcode type="JUMP_IF_FALSE" datatype="-1">
-               <value>29</value>
+               <value>85</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
                <value>ifFirstAttempt</value>
             </opcode>
             <opcode type="JUMP_IF_FALSE" datatype="-1">
-               <value>11</value>
+               <value>59</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>1</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="BINARY_EQ" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>5</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>15</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>TempSugarTag</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>2</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="BINARY_EQ" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>7</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>2</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>15</value>
+            </opcode>
+            <opcode type="BINARY_MUL" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>TempSugarTag</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>3</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="BINARY_EQ" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>7</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>3</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>15</value>
+            </opcode>
+            <opcode type="BINARY_MUL" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>TempSugarTag</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>4</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="BINARY_EQ" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>7</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>4</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>15</value>
+            </opcode>
+            <opcode type="BINARY_MUL" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>TempSugarTag</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>5</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="BINARY_EQ" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>7</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>5</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>15</value>
+            </opcode>
+            <opcode type="BINARY_MUL" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>TempSugarTag</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
                <value>waterCount</value>
@@ -110,7 +301,7 @@ if(Tags.resultButton)
                <value>ifFirstAttempt</value>
             </opcode>
             <opcode type="LOAD_CONST" datatype="3">
-               <value>10</value>
+               <value>1</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
                <value>totalWaterCount</value>
@@ -122,7 +313,7 @@ if(Tags.resultButton)
                <value>totalWaterCount</value>
             </opcode>
             <opcode type="LOAD_CONST" datatype="3">
-               <value>10</value>
+               <value>1</value>
             </opcode>
             <opcode type="LOAD_TAG" datatype="-1">
                <value>Garbage</value>
@@ -157,16 +348,125 @@ if(Tags.resultButton)
             <opcode type="STORE_TAG" datatype="-1">
                <value>ifFirstAttempt</value>
             </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>TempSugarTag</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+            <opcode type="BINARY_GT" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>5</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>1</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1">
+               <value></value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>SugarTank</value>
+            </opcode>
+         </opcodes>
+      </script>
+      <script name="sugarControl" color="0xd3d3d3ff" type="0" windowheight="600" windowwidth="800" groupname="" subgroupname="" language="1">
+         <objects/>
+         <links/>
+         <sttext>if (Tags.plusSugarBtn){
+	if(Tags.sugar &lt;= 5){
+		Tags.sugar++;
+	}
+	Tags.plusSugarBtn = false;
+}
+
+if (Tags.minusSugarBtn){
+	if(Tags.sugar &gt;= 0){
+		Tags.sugar--;
+	}
+	Tags.minusSugarBtn = false;
+}
+
+</sttext>
+         <opcodes>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>plusSugarBtn</value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>7</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>1</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="BINARY_ADD" datatype="-1"/>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="0">
+               <value>false</value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>plusSugarBtn</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>minusSugarBtn</value>
+            </opcode>
+            <opcode type="JUMP_IF_FALSE" datatype="-1">
+               <value>7</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="3">
+               <value>1</value>
+            </opcode>
+            <opcode type="LOAD_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="BINARY_REM" datatype="-1"/>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>sugar</value>
+            </opcode>
+            <opcode type="LOAD_CONST" datatype="0">
+               <value>false</value>
+            </opcode>
+            <opcode type="STORE_TAG" datatype="-1">
+               <value>minusSugarBtn</value>
+            </opcode>
          </opcodes>
       </script>
    </scripts>
    <servers/>
    <tags>
       <tag name="Garbage" datatype="3" accessmode="1" initialpv="0" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="SugarTank" datatype="3" accessmode="1" initialpv="1000" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="Sugar" subgroupname=""/>
+      <tag name="Tag13" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag14" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag15" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag16" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag17" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag18" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag19" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag20" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag21" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag22" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag23" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag24" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag25" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag26" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="Tag9" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="TempSugarTag" datatype="3" accessmode="1" initialpv="0" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="Sugar"/>
       <tag name="cofeeBag" datatype="3" accessmode="1" initialpv="500" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
       <tag name="coffeeCount" datatype="3" accessmode="1" initialpv="20" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
       <tag name="ifFirstAttempt" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="minusSugarBtn" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="Sugar"/>
+      <tag name="plusSugarBtn" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="Sugar"/>
       <tag name="resultButton" datatype="0" accessmode="1" initialpv="false" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
+      <tag name="sugar" datatype="3" accessmode="1" initialpv="2" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="Sugar"/>
       <tag name="tempTag" datatype="3" accessmode="1" initialpv="0" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
       <tag name="totalWaterCount" datatype="3" accessmode="1" initialpv="500" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
       <tag name="waterCount" datatype="3" accessmode="1" initialpv="150" numberofelements="10" elementtype="-1" pvinputserver="Local" pvinputsource="" outputdiffers="false" pvoutputserver="Local" pvoutputsource="" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="10000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false" enablescript="false" scriptname="" scriptvalue="0.0" scripttype="0" scriptdeadband="0.0" groupname="" subgroupname=""/>
@@ -177,7 +477,9 @@ if(Tags.resultButton)
    <sounds/>
    <mqttpublisher enabled="false" broker="tcp://m11.cloudmqtt.com:16160" Qos="0" enablessl="false" enableclientcert="false" pem="false" protocol="TLSv1.2"/>
    <emailclient enableclient="false" host="smtp.gmail.com" port="587" tlsssl="0" auth="true"/>
-   <groups/>
+   <groups>
+      <string>Sugar</string>
+   </groups>
    <subgroups/>
    <subscreengroups/>
    <subscriptgroups/>
